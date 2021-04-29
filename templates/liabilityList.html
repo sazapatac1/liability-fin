@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Liability | FIN</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h1 class="bg-black text-center">Evergreen | Finanzas</h1>
+    <div class="container">
+        <h1 class="text-center bg-dark">Liability List</h1>
+        <a class="btn btn-primary mb-2 float-right" href="/createLiability" role="button">Create a Liability</a>
+    
+        <table class="table table-striped">
+            <thead>
+                <th scope="col">#</th>
+                <th scope="col">Description</th>
+                <th scope="col">Value</th>
+                <th scope="col">Type</th>
+                <th scope="col">Actions</th>
+            </thead>
+            <tbody>
+            {% for liability in liabilities %}
+                <tr>
+                    <th scope="row">{{liability.id}}</th>
+                    <td>{{liability.description}}</td>
+                    <td>€ {{liability.value}}</td>
+                    <td>{{liability.type}}</td>
+                    <td><a class="btn btn-danger" href="/deleteLiability/{{liability.id}}" role="button">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+
+</body>
+</html>
