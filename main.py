@@ -17,8 +17,11 @@ def createLiability():
 
 @app.route('/saveLiability',methods=['POST'])
 def saveLiability():
-    liabilityJson = dict(request.values)
-    liabilityJson['value'] = float(liabilityJson['value'])
+    liabilityJson = {
+        'description': request.form.get('description'),
+        'value': request.form.get('value'),
+        'type': request.form.get('type')
+    }
     requests.post(LIABILITY_ENDPOINT, json=liabilityJson)
     return redirect('/')
 
