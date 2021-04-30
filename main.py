@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__, template_folder='templates')
 app.static_folder = 'static'
-LIABILITY_ENDPOINT = 'http://evergreen-env.eba-nm3pbh3f.us-east-1.elasticbeanstalk.com/api/liability'
+LIABILITY_ENDPOINT = 'https://be.evergreen-finanzas.ml/api/liability'
 types_list = ['Current','Non-current','Contingent']
 
 @app.route('/',methods=['GET'])
